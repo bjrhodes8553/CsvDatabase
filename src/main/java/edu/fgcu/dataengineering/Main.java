@@ -12,6 +12,8 @@ public class Main {
 	      // Literally just calls our parser right now (....and is called for tests)
         CsvParser csvP = new CsvParser("src/Data/bookstore_report2.csv");
         csvP.printCsv();
+        csvP.readCsv("src/Data/bookstore_report2.csv");
+
 
         // Load the json
         /*
@@ -25,7 +27,9 @@ public class Main {
         AuthorParser[] authors = gson.fromJson(jread, AuthorParser[].class);
 
         for (var element : authors) {
-            System.out.println(element.getName());
+            //System.out.println(element.getName());
+           // DatabaseAccessor.insertAuthor(element.getName(), element.getEmail(), element.getUrl());
         }
+
     }
 }

@@ -50,8 +50,10 @@ public class CsvParser {
       fileRows.add(nextLine);
     }
 
+
     // Close the reader
     reader.close();
+    DatabaseAccessor.insertBook(fileRows);
   }
 
    protected void writeCsv(String csvoutfile) {

@@ -5,7 +5,16 @@
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-      <jdbc-url>jdbc:sqlite:C:\Users\JSGreenwell\Google Drive\Professorships\Fall2019\COP3003\ReadACSV\src\Data\BookStore.db</jdbc-url>
+      <jdbc-url>jdbc:sqlite:C:\Users\feesh\OneDrive\intelliJCOP\CsvToDatabase2\src\Data\BookStore.db</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="BookStore.db" uuid="00561e4e-f17e-4344-8a3d-39192ae51280">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\feesh\OneDrive\intelliJCOP\CsvToDatabase2\src\Data\BookStore.db</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
     </data-source>
   </component>
 </project>
