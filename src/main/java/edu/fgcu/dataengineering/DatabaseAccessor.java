@@ -41,34 +41,32 @@ public class DatabaseAccessor {
     }
   }
 
-  public static void insertBook(List arr) {
-
-    System.out.println("Testingggg");
-
-      /*
-       So fileRows will be an Object type (which is fine we are just incrementing though it)
-            So after getting each row, we will need to "cast" row to a String array (String[])
-       */
-
+  public static void insertBook(String isbn, String title, String author, String publisher) {
 
         Connection conn = null;
         PreparedStatement pstmt = null;
         String sql;
+        int i = 1;
+        String[] book = {isbn, title, author, publisher};
 
         try {
           String url = "jdbc:sqlite:C:\\Users\\feesh\\OneDrive\\intelliJCOP\\CsvToDatabase2\\src\\Data\\BookStore.db";
           conn = DriverManager.getConnection(url);
-          sql = "INSERT INTO book(isbn, book_title, author_name, publisher_name) VALUES(?,?,?,?);";
+          sql = "INSERT OR IGNORE INTO book(isbn, book_title, author_name, publisher_name) VALUES(?,?,?,?);";
           pstmt = conn.prepareStatement(sql);
-          int i = 1;
-          for (Object row : arr) {
-            for (String fields : (String[]) row) {
-              pstmt.setString(1, fields);
-              i++;
-            }
+          for(String x: book){
+            pstmt.setString(i, x);
+            i++;
           }
-          pstmt.executeUpdate();
 
+
+
+
+
+          System.out.println("\nISBN: "+ isbn+ " TITLE: "+ title+ " AUTHOR: "+ author+ " PUBLISHER: "+ publisher);
+
+
+          pstmt.executeUpdate();
             } catch(SQLException e){
               System.out.println(e.getMessage());
             } finally{

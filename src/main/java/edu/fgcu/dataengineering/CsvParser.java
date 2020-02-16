@@ -51,9 +51,10 @@ public class CsvParser {
     }
 
 
+
     // Close the reader
     reader.close();
-    DatabaseAccessor.insertBook(fileRows);
+
   }
 
    protected void writeCsv(String csvoutfile) {
@@ -61,7 +62,9 @@ public class CsvParser {
   }
 
   protected void printCsv() {
+    ArrayList<String> book_info= new ArrayList<String>();
     /** printCsv - Printout the Csv */
+    int i = 1;
 
     for (Object row : fileRows) {
       /*
@@ -70,9 +73,24 @@ public class CsvParser {
        */
       for (String fields : (String[]) row) {
           System.out.print(fields + ", ");
+
+          //Array list to hold all the fields
+          book_info.add(fields);
       }
       System.out.println("\b\b\n---------------------");
+      //need to iterate through the whole array list until reach the end
+      if(i>0){
+        DatabaseAccessor.insertBook(book_info.get(0), book_info.get(1), book_info.get(2), book_info.get(3));
+      }
+      //CLear the array list each time so it has correct index.
+      book_info.clear();
+      i++;
     }
+
+
+
+
+
   }
 
   private boolean checkFile(String csvfile) {
