@@ -28,7 +28,7 @@ public class Main {
 
         for (var element : authors) {
             //System.out.println(element.getName());
-           // DatabaseAccessor.insertAuthor(element.getName(), element.getEmail(), element.getUrl());
+           DatabaseAccessor.insertAuthor(element.getName(), element.getEmail(), element.getUrl());
         }
 
     }
